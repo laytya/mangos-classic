@@ -29,8 +29,8 @@
 
 std::mt19937* initRand()
 {
-    std::seed_seq seq = { size_t(std::time(nullptr)), size_t(std::clock()) };
-    return new std::mt19937(seq);
+    
+    return new std::mt19937(std::random_device()());
 }
 
 static MaNGOS::thread_local_ptr<std::mt19937> mtRand(&initRand);
